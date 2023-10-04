@@ -1,4 +1,4 @@
-name: App Tests
+name: Test Application
 on: push
 jobs:
     test:
@@ -6,7 +6,7 @@ jobs:
         steps:
             - name: Get the codes
               uses: actions/checkout@v3
-            - name: Install node.js
+            - name: install node.js
               uses: actions/setup-node@v3
               with:
                 node-version: 18
@@ -14,5 +14,5 @@ jobs:
               run: npm install
             - name: run tests
               run: npm test
-            - name: comfirm
-              run: echo "done successfully"
+            - name: confirm tests
+              run: echo "tests passed"
