@@ -16,3 +16,16 @@ jobs:
               run: npm test
             - name: confirm tests
               run: echo "tests passed"
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get the codes
+              uses: actions/checkout@v3
+            - name: install node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: install dependencies
+              run: npm install
+            - name: deploy project
+              run: echo "project ready to be deployed"
