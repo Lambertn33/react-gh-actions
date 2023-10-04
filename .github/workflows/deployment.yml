@@ -1,31 +1,30 @@
-name: Test Application
+name: deployment
 on: push
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Get the codes
-              uses: actions/checkout@v3
-            - name: install node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18
-            - name: install dependencies
-              run: npm install
-            - name: run tests
-              run: npm test
-            - name: confirm tests
-              run: echo "tests passed"
-    deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Get the codes
-              uses: actions/checkout@v3
-            - name: install node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18
-            - name: install dependencies
-              run: npm install
-            - name: deploy project
-              run: echo "project ready to be deployed"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get the codes
+        uses: actions/checkout@v4
+      - name: install node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm install
+      - name: test the application
+        run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get the codes
+        uses: actions/checkout@v4
+      - name: install node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm install
+      - name: deploy
+        run: echo "deploying......"
+    
